@@ -19,5 +19,17 @@ df.dtypes
 df.show()
 
 
+#To print the number of record on your dataset
+df.cout()
+
+#Show n first observation
+df.head(5)
+
+#Get the summary statistic (mean, standard deviation, min, max, count)
+df.describe().show()
+
+#Get the DF which will not have duplicate rows of given DataFrame
+df.select('_c6').dropDuplicates().show() 
+
 
 # To summit spark-submit --master yarn --deploy-mode client <py file>
