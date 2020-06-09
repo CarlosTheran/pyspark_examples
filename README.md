@@ -31,7 +31,7 @@ clientnode@vm:~# hdfs dfs -put csv_covi19 /covi/
 ```bash
 clientnode@vm:~# pyspark yarn --master mode
 ```
-3.1 If you want to run the python code you must to submit the job as follow.
+4. If you want to run the python code you must to submit the job as follow.
 ```bash
 clientnode@vm:~# spark-submit --master yarn --deploy-mode client <py filename>
 ```
