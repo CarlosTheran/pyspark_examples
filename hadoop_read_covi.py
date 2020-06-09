@@ -11,13 +11,11 @@ df = spark.read.csv('hdfs://namenode:8020/covi/csv_covi19',inferSchema = True, h
 # Read json file from HDFS as DataFrame
 df2 = sparkSession.read.json('hdfs://namenode:8020/covi/json_covi19')
 
-
 #To verify DataFrame type
 df.dtypes
 
 #To show the first element of your DataFrame
 df.show()
-
 
 #To print the number of record on your dataset
 df.cout()
@@ -36,4 +34,19 @@ df.select('countriesAndTerritories').dropDuplicates().show()
 
 #Display columns names
 df.columns
+
+#Filter data and create other DF
+covi_colombia=df.filter(df.countriesAndTerritories=='Colombia').show()
+
+#get count
+covi_colombia.count()
+
+#Filter Data multiple parameters
+df.filter((df.continentExp=='America') & (df.day=='8')).show()
+
+#Sorting Data (OrderBy)
+df.orderBy(df.deaths).show()
+
+#Save Data to HDFS
+covi_colombia.write.format("csv").option('header',True).mode('overwrite').option('sep',',').save('hdfs://namenode:8020/covi/csv_covi_colombia')
 # To summit spark-submit --master yarn --deploy-mode client <py file>
