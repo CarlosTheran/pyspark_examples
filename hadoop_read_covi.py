@@ -6,7 +6,7 @@ sparkSession = SparkSession.builder.appName("rwHDFS").getOrCreate()
 sparkcont = SparkContext.getOrCreate(SparkConf().setAppName("rwHDFS"))
 
 # Read csv file from HDFS as DataFrame
-df = sparkSession.read.csv('hdfs://namenode:8020/covi/csv_covi19')
+df = spark.read.csv('hdfs://namenode:8020/covi/csv_covi19',inferSchema = True, header = True)
 
 # Read json file from HDFS as DataFrame
 df2 = sparkSession.read.json('hdfs://namenode:8020/covi/json_covi19')
@@ -28,8 +28,12 @@ df.head(5)
 #Get the summary statistic (mean, standard deviation, min, max, count)
 df.describe().show()
 
+#Describe a particular column
+df.describe('deaths').show()
+
 #Get the DF which will not have duplicate rows of given DataFrame
-df.select('_c6').dropDuplicates().show() 
+df.select('countriesAndTerritories').dropDuplicates().show() 
 
-
+#Display columns names
+df.columns
 # To summit spark-submit --master yarn --deploy-mode client <py file>
