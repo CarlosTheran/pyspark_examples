@@ -23,7 +23,7 @@ masternode@vm:~# $SPARK_HOME/sbin/start-all.sh
 ```
 2. create a new folder on HDFS and upload the csv file to that folder
 ```bash
-clientnode@vm:~# hdfs dfs -mkdir covi
+clientnode@vm:~# hdfs dfs -mkdir /covi
 clientnode@vm:~# hdfs dfs -put csv_covi19 /covi/
 ```
 3. run Spark in yarn cluster mode using pyspark if you want to interact with the shell
