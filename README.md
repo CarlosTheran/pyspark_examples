@@ -29,7 +29,7 @@ clientnode@vm:~# hdfs dfs -put csv_covi19 /covi/
 3. run Spark in yarn cluster mode using pyspark if you want to interact with the shell
 
 ```bash
-clientnode@vm:~# pyspark yarn --master mode
+clientnode@vm:~# pyspark --master yarn
 ```
 4. If you want to run the python code you must to submit the job as follow.
 ```bash
