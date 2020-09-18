@@ -18,7 +18,7 @@ df.dtypes
 df.show()
 
 #To print the number of record on your dataset
-df.cout()
+df.count()
 
 #Show n first observation
 df.head(5)
